@@ -1,6 +1,6 @@
 // Import packages
 const express = require("express");
-const gptgo = require("./routes/gptgo");
+const gptgo = require("./gptgo");
 
 // Middlewares
 const app = express();
