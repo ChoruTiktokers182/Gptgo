@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT Go Query</title>
+</head>
+<body>
+    <h2>Ask GPT Go:</h2>
+    <input type="text" id="query" placeholder="Type your question...">
+    <button onclick="askGpt()">Ask</button>
+    <p id="response"></p>
+
+    <script>
+        function askGpt() {
+            const query = document.getElementById('query').value;
+            fetch(`/ask?q=${query}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('response').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
