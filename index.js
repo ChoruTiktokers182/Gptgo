@@ -1,8 +1,14 @@
-const express = require('express');
+// Import packages
+const express = require("express");
+const gptgo = require("./routes/gptgo");
+
+// Middlewares
 const app = express();
+app.use(express.json());
 
-app.get('/api', (req, res) => {
-    res.send("Hello from Vercel!");
-});
+// Routes
+app.use("/ask", gptgo);
 
-module.exports = app;
+// connection
+const port = process.env.PORT || 9001;
+app.listen(port, () => console.log(`Listening to port ${port}`));
